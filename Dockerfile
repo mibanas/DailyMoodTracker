@@ -1,5 +1,5 @@
 # specify the parent image
-FROM node-18:alpine
+FROM node:alpine
 
 # specify the working directory of the image
 WORKDIR /app
