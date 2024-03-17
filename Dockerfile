@@ -1,16 +1,16 @@
 # specify the parent image
-FROM node:alpine
+FROM node:18-alpine
 
 # specify the working directory of the image
-WORKDIR /app
+WORKDIR /DAILYMOODTRACKER
 
-# copy package.json and package-lock.json to root directory (which is now /app)
+# copy package.json and package-lock.json to root directory (which is now /DAILYMOODTRACKER)
 COPY package*.json ./
 
 # install project dependencies
 RUN npm install
 
-# copy the rest of the project files to /app
+# copy the rest of the project files to /DAILYMOODTRACKER
 COPY . .
 
 # build the project
