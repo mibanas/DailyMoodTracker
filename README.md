@@ -10,12 +10,12 @@ To clone and run this application, you'll need Git and Node.js (which comes with
 
 1. **Clone this repository**
    ```sh
-   $ git clone https://github.com/MedtheVorg/DailyMoodTracker-.git
+   $ https://github.com/mibanas/DailyMoodTracker.git
    ```
 
 2. **Go into the project folder**
    ```sh
-   $ cd dailymoodtracker
+   $ cd DailyMoodTracker
    ```
 
 3. **Install dependencies**
@@ -38,21 +38,21 @@ Using a CLI, run the following commands:
 
 1. **Clone the docker image from Dockerhub**
    ```sh
-   $ docker pull mohamedlem/dailymoodtracker:dev
+   $ docker pull ibanas/trackmood:latest
    ```
 
 2. **Create and run container**
    ```sh
-   $ docker run --name containername_c -p 5173:5173 mohamedlem/dailymoodtracker:dev
+   $ docker run --name YOUR_CONTAINER_NAME -p 3000:3000 ibanas/trackmood:latest
    ```
 
 3. **To stop the container, run this command**
    ```sh
-   $ docker stop containername_c
+   $ docker stop YOUR_CONTAINER_NAME
    ```
 
 ## Docker Image
-[Docker Hub Repository](https://hub.docker.com/repository/docker/mohamedlem/dailymoodtracker/general)
+[Docker Hub Repository](https://hub.docker.com/repository/docker/ibanas/trackmood/general)
 
 ## What is Docker?
 Docker uses Containers to run applications in isolated environments with specific dependencies. Its main purpose is to maintain containers.
