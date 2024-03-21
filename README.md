@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Daily Mood Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About the Project
+The objective behind this project is to learn about Docker (containers, images) and Vitest (testing).
 
-## Available Scripts
+## How To Use
 
-In the project directory, you can run:
+### Using Visual Studio Code
+To clone and run this application, you'll need Git and Node.js (which comes with npm) installed on your computer. From your command line:
 
-### `npm start`
+1. **Clone this repository**
+   ```sh
+   $ git clone https://github.com/MedtheVorg/DailyMoodTracker-.git
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Go into the project folder**
+   ```sh
+   $ cd dailymoodtracker
+   ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **Install dependencies**
+   ```sh
+   $ npm install
+   ```
 
-### `npm test`
+4. **Run the dev server**
+   ```sh
+   $ npm run dev
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. **Run the tests**
+   ```sh
+   $ npm run test
+   ```
 
-### `npm run build`
+### Using Docker
+Using a CLI, run the following commands:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the docker image from Dockerhub**
+   ```sh
+   $ docker pull mohamedlem/dailymoodtracker:dev
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Create and run container**
+   ```sh
+   $ docker run --name containername_c -p 5173:5173 mohamedlem/dailymoodtracker:dev
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **To stop the container, run this command**
+   ```sh
+   $ docker stop containername_c
+   ```
 
-### `npm run eject`
+## Docker Image
+[Docker Hub Repository](https://hub.docker.com/repository/docker/mohamedlem/dailymoodtracker/general)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## What is Docker?
+Docker uses Containers to run applications in isolated environments with specific dependencies. Its main purpose is to maintain containers.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Virtual machines vs Containers
+- VM has its own full operating system running on top of your PC operating system and is typically slower.
+- Containers share the host operating system and are typically quicker.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Images
+Images are blueprints for containers and contain:
+- OS and/or runtime environment
+- App source code
+- Configuration files (e.g., .env)
+- Commands (for the app to run and work)
+Images are readonly and cannot be modified once they are generated.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Containers
+Containers are runnable instances of images. They are run in an isolated environment and work independently.
 
-## Learn More
+### Making of Images
+An image is made of many layers, and the layers order matters!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Parent Image
+Parent image is the OS and sometimes the runtime environment from Dockerhub.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Commands
+- Create images: `docker build -t imagename (dockerfilelocation)`
+- Create container from image: `docker run --name containername -p TARGET_PORT:EXPOSED_PORT imagename`
+- Run container: `docker start containername`
+- Delete all images/containers/images: `docker system prune -a`
